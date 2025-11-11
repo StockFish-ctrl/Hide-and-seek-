@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find the Secret</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      text-align: center;
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      justify-items: center;
+    }
+    button {
+      padding: 15px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: gray;
+      color: white;
+      width: 100%;
+      max-width: 120px;
+    }
+    button:hover {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Find the Secret Button</h1>
+  <div class="grid" id="buttons"></div>
+
+  <script>
+    const secretButton = 47; // The winning button number
+    for (let i = 1; i <= 100; i++) {
+      let btn = document.createElement("button");
+      btn.textContent = "Button " + i;
+      btn.onclick = function() {
+        if (i === secretButton) {
+          window.location.href = "found.html";        // winning page
+        } else {
+          window.location.href = "not-in-here.html";  // wrong page
+        }
+      };
+      document.getElementById("buttons").appendChild(btn);
+    }
+  </script>
+</body>
+</html>
